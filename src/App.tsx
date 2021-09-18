@@ -1,10 +1,12 @@
 import React from 'react';
+import ResetStyle from './styles/ResetStyle';
 
 function App() {
   console.log(process.env.REACT_APP_API_URL);
   return (
     <div>
-      <p>sss</p>
+      <ResetStyle />
+      <p>ssasdasdadadasds</p>
     </div>
   );
 }
