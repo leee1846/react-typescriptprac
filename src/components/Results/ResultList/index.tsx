@@ -16,8 +16,8 @@ const ResultList = ({ resultList }: Props) => {
               <div>
                 <S.NameBtn type="button">{resultItem[0]}</S.NameBtn>
               </div>
-              <p>{resultItem[1]}</p>
-              <p>{resultItem[2]}</p>
+              <p>{resultItem[1].toFixed(5)}</p>
+              <p>{resultItem[2].toFixed(5)}</p>
             </S.ListBox>
           ))}
       </ul>
