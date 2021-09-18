@@ -1,16 +1,14 @@
 import useSWR from 'swr';
 import fetcher from '../utils/fetcher';
-
-type DataType = [string, number, number][];
+import { ResultListType } from '../types/resultTypes';
 
 const useGetResults = (): {
-  data: DataType | undefined;
+  data: ResultListType;
   error: any;
-  loading: boolean;
 } => {
   const { data, error } = useSWR('/result', fetcher);
 
-  return { data, error, loading: !data && !error };
+  return { data, error };
 };
 
 export default useGetResults;

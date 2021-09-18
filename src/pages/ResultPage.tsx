@@ -5,13 +5,13 @@ import ResultList from '../components/Results/ResultList';
 import useGetResults from '../swr/useGetResults';
 
 const ResultPage = () => {
-  const { data: resultList, error, loading } = useGetResults();
+  const { data: resultList, error } = useGetResults();
 
   if (error) return <Redirect to="/error" />;
   return (
     <div>
       <ResultForm />
-      <ResultList resultList={resultList} />
+      {resultList && <ResultList resultList={resultList} />}
     </div>
   );
 };

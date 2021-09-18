@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import ResultSubTitle from '../ResultSubTitle';
+import { ResultListType } from '../../../types/resultTypes';
 
 interface Props {
-  resultList: [string, number, number][] | undefined;
+  resultList: ResultListType;
 }
 const ResultList = ({ resultList }: Props) => {
+  const [filteredList, setFilteredList] = useState(resultList);
+
+  useEffect(() => {
+    setFilteredList(resultList);
+  }, [resultList]);
+
   return (
     <S.Container>
-      <ResultSubTitle />
+      <ResultSubTitle setFilteredList={setFilteredList} />
       <ul>
-        {resultList &&
-          resultList.map((resultItem, index) => (
-            <S.ListBox key={`result-${index + 1}`}>
-              <div>
-                <S.NameBtn type="button">{resultItem[0]}</S.NameBtn>
-              </div>
-              <p>{resultItem[1].toFixed(5)}</p>
-              <p>{resultItem[2].toFixed(5)}</p>
-            </S.ListBox>
-          ))}
+        {filteredList.map((resultItem, index) => (
+          <S.ListBox key={`result-${index + 1}`}>
+            <div>
+              <S.NameBtn type="button">{resultItem[0]}</S.NameBtn>
+            </div>
+            <p>{resultItem[1].toFixed(5)}</p>
+            <p>{resultItem[2].toFixed(5)}</p>
+          </S.ListBox>
+        ))}
       </ul>
     </S.Container>
   );

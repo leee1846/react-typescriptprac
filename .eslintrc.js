@@ -22,7 +22,12 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': [
       1,

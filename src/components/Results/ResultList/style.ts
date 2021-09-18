@@ -4,6 +4,10 @@ export const Container = styled.div`
   margin-top: 48px;
 `;
 
+export const Order = styled.p`
+  text-align: right;
+`;
+
 export const ListBox = styled.li`
   display: flex;
   align-items: center;
