@@ -1,9 +1,10 @@
 import React from 'react';
+import TitleText from '../components/Commons/TitleText';
 
 const CharliePage = () => {
   return (
     <div>
-      <p>charlie</p>
+      <TitleText>charlie</TitleText>
     </div>
   );
 };

@@ -15,8 +15,6 @@ const ResetStyle = createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
-    margin: 0;
-    padding: 0;
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
@@ -52,6 +50,8 @@ const ResetStyle = createGlobalStyle`
   }
   // 추가
   * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     color:black;
     font-family: "Lato Regular";

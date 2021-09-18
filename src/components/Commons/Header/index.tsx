@@ -2,16 +2,16 @@ import React from 'react';
 import Navigation from '../Navigation';
 import * as S from './style';
 // images
-import logo from '../../assets/images/logo.svg';
+import logo from '../../../assets/images/logo.svg';
 
 const Header = () => {
   return (
-    <header>
-      <S.Header>
+    <S.Header>
+      <S.LogoContainer>
         <img src={logo} alt="logo" />
-      </S.Header>
+      </S.LogoContainer>
       <Navigation />
-    </header>
+    </S.Header>
   );
 };
 

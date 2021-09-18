@@ -1,9 +1,10 @@
 import React from 'react';
+import TitleText from '../components/Commons/TitleText';
 
 const EchoPage = () => {
   return (
     <div>
-      <p>echo</p>
+      <TitleText>echo</TitleText>
     </div>
   );
 };

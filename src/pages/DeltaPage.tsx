@@ -1,9 +1,10 @@
 import React from 'react';
+import TitleText from '../components/Commons/TitleText';
 
 const DeltaPage = () => {
   return (
     <div>
-      <p>delta</p>
+      <TitleText>delta</TitleText>
     </div>
   );
 };
