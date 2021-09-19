@@ -23,12 +23,21 @@ export const Header = styled.ul`
   }
 `;
 
-export const SubItem = styled.li`
+interface SubItemBtnProps {
+  isClicked: boolean;
+}
+export const SubItemBtn = styled.button<SubItemBtnProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid lightgray;
+  width: 100%;
+  background-color: ${({ isClicked }) => isClicked && 'aliceblue'};
+  transition: 0.1s;
 
+  &:hover {
+    box-shadow: 0px 0px 5px 1px lightgray;
+  }
   & > p {
     display: flex;
     align-items: center;

@@ -1,16 +1,17 @@
 import React from 'react';
 import * as S from './style';
-import { ResultItemType } from '../../../types/resultTypes';
+import { ResultItemObjType } from '../../../types/resultTypes';
 
 interface Props {
-  resultItem: ResultItemType;
+  resultItem: ResultItemObjType;
   setClickedResultItem: React.Dispatch<
     React.SetStateAction<{ name: string; foxtrot: number; golf: number }>
   >;
 }
 const ResultItem = ({ resultItem, setClickedResultItem }: Props) => {
-  const onNameClick = (item: ResultItemType) => {
-    const currentItem = { name: item[0], foxtrot: item[1], golf: item[2] };
+  const onNameClick = (item: ResultItemObjType) => {
+    const { name, foxtrot, golf } = item;
+    const currentItem = { name, foxtrot, golf };
     setClickedResultItem((prev) =>
       prev.name === currentItem.name
         ? { name: '', foxtrot: 0, golf: 0 }
@@ -22,11 +23,11 @@ const ResultItem = ({ resultItem, setClickedResultItem }: Props) => {
     <S.ListBox>
       <div>
         <S.NameBtn type="button" onClick={() => onNameClick(resultItem)}>
-          {resultItem[0]}
+          {resultItem.name}
         </S.NameBtn>
       </div>
-      <p>{resultItem[1].toFixed(5)}</p>
-      <p>{resultItem[2].toFixed(5)}</p>
+      <p>{resultItem.foxtrot.toFixed(5)}</p>
+      <p>{resultItem.golf.toFixed(5)}</p>
     </S.ListBox>
   );
 };

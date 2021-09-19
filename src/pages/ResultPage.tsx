@@ -32,7 +32,7 @@ const ResultPage = () => {
           resultSubList={resultSubList}
         />
       )}
-      {resultList && (
+      {resultList[0] && (
         <ResultList
           resultList={resultList}
           setClickedResultItem={setClickedResultItem}

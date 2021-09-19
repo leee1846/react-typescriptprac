@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ResultItemObjType,
-  ResultItemType,
-  ResultListType,
-} from '../../../types/resultTypes';
+import { ResultListType } from '../../../types/resultTypes';
 import ResultSubTitle from '../ResultSubTitle';
 import * as S from './style';
 import ResultItem from '../ResultItem';

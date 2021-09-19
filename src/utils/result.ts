@@ -1,25 +1,25 @@
-import { ResultItemType, ResultListType } from '../types/resultTypes';
+import { ResultListType } from '../types/resultTypes';
 
-export const sortAscendingResult = (array: ResultListType, key: number) => {
+export const sortAscendingResult = (array: ResultListType, type: number) => {
   if (array) {
-    if (key === 1) {
-      const result = [...array].sort((a, b) => b[1] - a[1]);
+    if (type === 1) {
+      const result = [...array].sort((a, b) => b.foxtrot - a.foxtrot);
       return result;
     }
-    const result = [...array].sort((a, b) => b[2] - a[2]);
+    const result = [...array].sort((a, b) => b.golf - a.golf);
     return result;
   }
 
   return array;
 };
 
-export const sortDescendingResult = (array: ResultListType, key: number) => {
+export const sortDescendingResult = (array: ResultListType, type: number) => {
   if (array) {
-    if (key === 1) {
-      const result = [...array].sort((a, b) => a[1] - b[1]);
+    if (type === 1) {
+      const result = [...array].sort((a, b) => a.foxtrot - b.foxtrot);
       return result;
     }
-    const result = [...array].sort((a, b) => a[2] - b[2]);
+    const result = [...array].sort((a, b) => a.golf - b.golf);
     return result;
   }
 

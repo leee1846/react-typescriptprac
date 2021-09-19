@@ -14,12 +14,19 @@ const useGetResultSubList = (name: string): { data: ResultSubType } => {
     return true;
   };
 
+  let subList = [] as [] | ResultSubType;
   const { data } = useSWR(`/result/${name}`, sholudFetch() ? fetcher : null);
   if (data && name) {
     setSubListToStorage(name);
+    data.forEach((item: [number, number, number]) => {
+      subList = [
+        ...subList,
+        { id: item[0], foxtrot: item[1], golf: item[2], clicked: false },
+      ];
+    });
   }
 
-  return { data };
+  return { data: subList };
 };
 
 export default useGetResultSubList;

@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ResultItem from '../ResultItem';
 import * as S from './style';
-import {
-  ResultItemObjType,
-  ResultItemType,
-  ResultSubType,
-} from '../../../types/resultTypes';
+import { ResultItemObjType, ResultSubType } from '../../../types/resultTypes';
 
 interface Props {
   clickedResultItem: ResultItemObjType;
-  setClickedResultItem: React.Dispatch<
-    React.SetStateAction<{ name: string; foxtrot: number; golf: number }>
-  >;
+  setClickedResultItem: React.Dispatch<React.SetStateAction<ResultItemObjType>>;
   resultSubList: ResultSubType;
 }
 const ResultSubTable = ({
@@ -19,8 +13,22 @@ const ResultSubTable = ({
   setClickedResultItem,
   resultSubList,
 }: Props) => {
+  const [clickedSubItem, setClickedSubItem] = useState<number[]>([]);
   const { name, foxtrot, golf } = clickedResultItem;
-  const resultItem = [name, foxtrot, golf] as ResultItemType;
+  const resultItem = { name, foxtrot, golf };
+
+  const onSubItemClick = (id: number) => {
+    setClickedSubItem((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((prevItem) => prevItem !== id);
+      }
+      return [...prev, id];
+    });
+  };
+
+  useEffect(() => {
+    setClickedSubItem([]);
+  }, [clickedResultItem]);
 
   return (
     <S.Container>
@@ -35,11 +43,17 @@ const ResultSubTable = ({
       />
       <ul>
         {resultSubList.map((item) => (
-          <S.SubItem key={item[0]}>
-            <p>{item[0]}</p>
-            <p>{item[1]}</p>
-            <p>{item[2]}</p>
-          </S.SubItem>
+          <li key={item.id}>
+            <S.SubItemBtn
+              type="button"
+              onClick={() => onSubItemClick(item.id)}
+              isClicked={clickedSubItem.includes(item.id)}
+            >
+              <p>{item.id}</p>
+              <p>{item.foxtrot}</p>
+              <p>{item.golf}</p>
+            </S.SubItemBtn>
+          </li>
         ))}
       </ul>
     </S.Container>

@@ -1,7 +1,12 @@
-export type ResultItemType = [string, number, number];
-
 export type ResultItemObjType = { name: string; foxtrot: number; golf: number };
 
-export type ResultListType = ResultItemType[];
+export type ResultListType = ResultItemObjType[];
 
-export type ResultSubType = [number, number, number][];
+export type ResultSubObjType = {
+  id: number;
+  foxtrot: number;
+  golf: number;
+  clicked: boolean;
+};
+
+export type ResultSubType = ResultSubObjType[];
