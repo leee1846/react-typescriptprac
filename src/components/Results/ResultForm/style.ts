@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LEVEL_TOP } from '../../../utils/zindex';
 
 export const Container = styled.div`
   position: sticky;
@@ -9,6 +10,7 @@ export const Container = styled.div`
   padding: 48px 0;
   border-bottom: 1px solid #0d9991;
   background-color: white;
+  z-index: ${LEVEL_TOP};
 `;
 
 export const Form = styled.form`

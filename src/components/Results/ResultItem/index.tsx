@@ -14,11 +14,8 @@ const ResultItem = ({ resultItem, setClickedResultItem, setBasket }: Props) => {
   const onNameClick = (item: ResultItemObjType) => {
     const { name, foxtrot, golf } = item;
     const currentItem = { name, foxtrot, golf };
-    setClickedResultItem((prev) =>
-      prev.name === currentItem.name
-        ? { name: '', foxtrot: 0, golf: 0 }
-        : currentItem,
-    );
+    setClickedResultItem((prev) => currentItem);
+    window.scrollTo({ left: 0, top: 233, behavior: 'smooth' });
   };
 
   const onAddClick = (currentItem: ResultItemObjType) => {
