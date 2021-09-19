@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './style';
 import TitleText from '../../Commons/TitleText';
 
-const ResultForm = () => {
+interface Props {
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+}
+const ResultForm = ({ setSearchValue }: Props) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSearchValue(inputValue.toLowerCase());
+  };
+
   return (
     <S.Container>
       <TitleText>Result</TitleText>
-      <S.Form>
-        <input type="text" />
+      <S.Form onSubmit={(e) => onSubmit(e)}>
+        <input type="text" onChange={(e) => setInputValue(e.target.value)} />
         <button type="submit">search</button>
         <button type="button">download</button>
       </S.Form>

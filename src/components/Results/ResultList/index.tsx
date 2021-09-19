@@ -9,8 +9,13 @@ interface Props {
   setClickedResultItem: React.Dispatch<
     React.SetStateAction<{ name: string; foxtrot: number; golf: number }>
   >;
+  searchValue: string;
 }
-const ResultList = ({ resultList, setClickedResultItem }: Props) => {
+const ResultList = ({
+  resultList,
+  setClickedResultItem,
+  searchValue,
+}: Props) => {
   const [filteredList, setFilteredList] = useState(resultList);
 
   // list 순서를 컨트롤하기위하여 useState에 저장 (ex. 오름차순)
@@ -22,14 +27,27 @@ const ResultList = ({ resultList, setClickedResultItem }: Props) => {
     <S.Container>
       <ResultSubTitle setFilteredList={setFilteredList} />
       <ul>
-        {filteredList.map((resultItem, index) => (
-          <li key={`result-${index + 1}`}>
-            <ResultItem
-              resultItem={resultItem}
-              setClickedResultItem={setClickedResultItem}
-            />
-          </li>
-        ))}
+        {!searchValue
+          ? filteredList.map((resultItem, index) => (
+              <li key={`result-${index + 1}`}>
+                <ResultItem
+                  resultItem={resultItem}
+                  setClickedResultItem={setClickedResultItem}
+                />
+              </li>
+            ))
+          : filteredList
+              .filter((resultItem) =>
+                resultItem.name.toLowerCase().includes(searchValue),
+              )
+              .map((item, index) => (
+                <li key={`result-${index + 1}`}>
+                  <ResultItem
+                    resultItem={item}
+                    setClickedResultItem={setClickedResultItem}
+                  />
+                </li>
+              ))}
       </ul>
     </S.Container>
   );

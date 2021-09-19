@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import ResultForm from '../components/Results/ResultForm';
 import ResultList from '../components/Results/ResultList';
@@ -18,13 +18,14 @@ const ResultPage = () => {
     foxtrot: 0,
     golf: 0,
   });
+  const [searchValue, setSearchValue] = useState('');
   const { data: resultList, error } = useGetResults();
   const { data: resultSubList } = useGetResultSubList(clickedResultItem.name);
 
   if (error) return <Redirect to="/error" />;
   return (
     <div>
-      <ResultForm />
+      <ResultForm setSearchValue={setSearchValue} />
       {clickedResultItem.name && resultSubList && (
         <ResultSubTable
           clickedResultItem={clickedResultItem}
@@ -36,6 +37,7 @@ const ResultPage = () => {
         <ResultList
           resultList={resultList}
           setClickedResultItem={setClickedResultItem}
+          searchValue={searchValue}
         />
       )}
     </div>
