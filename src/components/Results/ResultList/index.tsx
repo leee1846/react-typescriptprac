@@ -10,11 +10,13 @@ interface Props {
     React.SetStateAction<{ name: string; foxtrot: number; golf: number }>
   >;
   searchValue: string;
+  setBasket: React.Dispatch<React.SetStateAction<ResultListType | []>>;
 }
 const ResultList = ({
   resultList,
   setClickedResultItem,
   searchValue,
+  setBasket,
 }: Props) => {
   const [filteredList, setFilteredList] = useState(resultList);
 
@@ -33,6 +35,7 @@ const ResultList = ({
                 <ResultItem
                   resultItem={resultItem}
                   setClickedResultItem={setClickedResultItem}
+                  setBasket={setBasket}
                 />
               </li>
             ))
@@ -45,6 +48,7 @@ const ResultList = ({
                   <ResultItem
                     resultItem={item}
                     setClickedResultItem={setClickedResultItem}
+                    setBasket={setBasket}
                   />
                 </li>
               ))}

@@ -5,6 +5,8 @@ import ResultList from '../components/Results/ResultList';
 import useGetResultSubList from '../swr/useGetResultSubList';
 import ResultSubTable from '../components/Results/ResultSubTable';
 import useGetResults from '../swr/useGetResults';
+import { ResultListType } from '../types/resultTypes';
+import ResultBasket from '../components/Results/ResultBasket';
 
 const ResultPage = () => {
   // 새로고침시 sessionStorage clear
@@ -19,6 +21,7 @@ const ResultPage = () => {
     golf: 0,
   });
   const [searchValue, setSearchValue] = useState('');
+  const [basket, setBasket] = useState<[] | ResultListType>([]);
   const { data: resultList, error } = useGetResults();
   const { data: resultSubList } = useGetResultSubList(clickedResultItem.name);
 
@@ -26,11 +29,13 @@ const ResultPage = () => {
   return (
     <div>
       <ResultForm setSearchValue={setSearchValue} />
+      {basket[0] && <ResultBasket basketList={basket} setBasket={setBasket} />}
       {clickedResultItem.name && resultSubList && (
         <ResultSubTable
           clickedResultItem={clickedResultItem}
           setClickedResultItem={setClickedResultItem}
           resultSubList={resultSubList}
+          setBasket={setBasket}
         />
       )}
       {resultList[0] && (
@@ -38,6 +43,7 @@ const ResultPage = () => {
           resultList={resultList}
           setClickedResultItem={setClickedResultItem}
           searchValue={searchValue}
+          setBasket={setBasket}
         />
       )}
     </div>

@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import ResultItem from '../ResultItem';
 import * as S from './style';
-import { ResultItemObjType, ResultSubType } from '../../../types/resultTypes';
+import {
+  ResultItemObjType,
+  ResultListType,
+  ResultSubType,
+} from '../../../types/resultTypes';
 
 interface Props {
   clickedResultItem: ResultItemObjType;
   setClickedResultItem: React.Dispatch<React.SetStateAction<ResultItemObjType>>;
   resultSubList: ResultSubType;
+  setBasket: React.Dispatch<React.SetStateAction<ResultListType | []>>;
 }
 const ResultSubTable = ({
   clickedResultItem,
   setClickedResultItem,
   resultSubList,
+  setBasket,
 }: Props) => {
   const [clickedSubItem, setClickedSubItem] = useState<number[]>([]);
   const { name, foxtrot, golf } = clickedResultItem;
@@ -40,7 +46,9 @@ const ResultSubTable = ({
       <ResultItem
         resultItem={resultItem}
         setClickedResultItem={setClickedResultItem}
+        setBasket={setBasket}
       />
+
       <ul>
         {resultSubList.map((item) => (
           <li key={item.id}>
@@ -50,8 +58,8 @@ const ResultSubTable = ({
               isClicked={clickedSubItem.includes(item.id)}
             >
               <p>{item.id}</p>
-              <p>{item.foxtrot}</p>
-              <p>{item.golf}</p>
+              <p>{item.foxtrot.toFixed(5)}</p>
+              <p>{item.golf.toFixed(5)}</p>
             </S.SubItemBtn>
           </li>
         ))}

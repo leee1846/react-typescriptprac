@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ListBox = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,5 +29,18 @@ export const NameBtn = styled.button`
 
   &:hover {
     box-shadow: 4px 4px 5px rgba(189, 235, 193, 1);
+  }
+`;
+
+export const AddBtn = styled.button`
+  position: absolute;
+  right: 0;
+  color: crimson;
+  border: 1px solid crimson;
+  padding: 3px 5px;
+  font-size: 14px;
+
+  &:hover {
+    box-shadow: 4px 4px 5px rgba(255, 202, 202, 1);
   }
 `;
