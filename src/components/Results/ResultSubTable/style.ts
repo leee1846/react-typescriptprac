@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LEVEL_3, LEVEL_4 } from '../../../utils/zindex';
 
 export const Container = styled.section`
   margin-top: 48px;
@@ -55,6 +56,7 @@ interface SubItemBtnProps {
   isClicked: boolean;
 }
 export const SubItemBtn = styled.button<SubItemBtnProps>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,9 +64,11 @@ export const SubItemBtn = styled.button<SubItemBtnProps>`
   width: 100%;
   background-color: ${({ isClicked }) => isClicked && 'aliceblue'};
   transition: 0.1s;
+  z-index: ${LEVEL_3};
 
   &:hover {
-    box-shadow: 0px 0px 5px 1px lightgray;
+    box-shadow: ${({ isClicked }) => !isClicked && '0px 0px 5px 1px lightgray'};
+    cursor: ${({ isClicked }) => isClicked && 'initial'};
   }
   & > p {
     display: flex;
@@ -74,5 +78,19 @@ export const SubItemBtn = styled.button<SubItemBtnProps>`
     height: 41px;
     font-family: 'Lato Light';
     font-size: 22px;
+  }
+`;
+
+export const XBtn = styled.button`
+  position: absolute;
+  right: 0;
+  border: 1px solid black;
+  padding: 3px 5px;
+  font-size: 14px;
+  background-color: white;
+  z-index: ${LEVEL_4};
+
+  &:hover {
+    box-shadow: 2px 2px 3px lightgray;
   }
 `;

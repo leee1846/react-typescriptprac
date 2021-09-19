@@ -26,7 +26,7 @@ const ResultSubTable = ({
   const onSubItemClick = (id: number) => {
     setClickedSubItem((prev) => {
       if (prev.includes(id)) {
-        return prev.filter((prevItem) => prevItem !== id);
+        return prev;
       }
       return [...prev, id];
     });
@@ -34,6 +34,14 @@ const ResultSubTable = ({
 
   const onCheckAll = () => {
     setClickedSubItem(() => resultSubList.map((subItem) => subItem.id));
+  };
+
+  const onRemove = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    id: number,
+  ) => {
+    e.stopPropagation();
+    setClickedSubItem((prev) => prev.filter((prevItem) => prevItem !== id));
   };
 
   useEffect(() => {
@@ -71,6 +79,11 @@ const ResultSubTable = ({
               <p>{item.id}</p>
               <p>{item.foxtrot.toFixed(5)}</p>
               <p>{item.golf.toFixed(5)}</p>
+              {clickedSubItem.includes(item.id) && (
+                <S.XBtn type="button" onClick={(e) => onRemove(e, item.id)}>
+                  X
+                </S.XBtn>
+              )}
             </S.SubItemBtn>
           </li>
         ))}
