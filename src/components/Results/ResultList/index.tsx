@@ -25,33 +25,43 @@ const ResultList = ({
     setFilteredList(resultList);
   }, [resultList]);
 
+  const listBySearchValue = () => {
+    const listAfterSearch = filteredList.filter((resultItem) =>
+      resultItem.name.toLowerCase().includes(searchValue),
+    );
+    if (!listAfterSearch[0]) {
+      return [];
+    }
+    return listAfterSearch;
+  };
+
   return (
     <S.Container>
       <ResultSubTitle setFilteredList={setFilteredList} />
       <ul>
-        {!searchValue
-          ? filteredList.map((resultItem, index) => (
-              <li key={`result-${index + 1}`}>
-                <ResultItem
-                  resultItem={resultItem}
-                  setClickedResultItem={setClickedResultItem}
-                  setBasket={setBasket}
-                />
-              </li>
-            ))
-          : filteredList
-              .filter((resultItem) =>
-                resultItem.name.toLowerCase().includes(searchValue),
-              )
-              .map((item, index) => (
-                <li key={`result-${index + 1}`}>
-                  <ResultItem
-                    resultItem={item}
-                    setClickedResultItem={setClickedResultItem}
-                    setBasket={setBasket}
-                  />
-                </li>
-              ))}
+        {!searchValue &&
+          filteredList.map((resultItem, index) => (
+            <li key={`result-${index + 1}`}>
+              <ResultItem
+                resultItem={resultItem}
+                setClickedResultItem={setClickedResultItem}
+                setBasket={setBasket}
+              />
+            </li>
+          ))}
+        {listBySearchValue()[0] ? (
+          listBySearchValue().map((item, index) => (
+            <li key={`result-${index + 1}`}>
+              <ResultItem
+                resultItem={item}
+                setClickedResultItem={setClickedResultItem}
+                setBasket={setBasket}
+              />
+            </li>
+          ))
+        ) : (
+          <S.NoContents>검색된 아이템이 없습니다.</S.NoContents>
+        )}
       </ul>
     </S.Container>
   );

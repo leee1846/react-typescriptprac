@@ -21,6 +21,7 @@ const ResultItem = ({ resultItem, setClickedResultItem, setBasket }: Props) => {
   const onAddClick = (currentItem: ResultItemObjType) => {
     setBasket((prev) => {
       if (prev.some((prevItem) => prevItem.name === currentItem.name)) {
+        alert('이미 추가되었습니다.');
         return prev;
       }
       return [...prev, currentItem];
