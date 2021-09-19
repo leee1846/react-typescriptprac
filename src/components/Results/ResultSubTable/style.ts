@@ -23,6 +23,34 @@ export const Header = styled.ul`
   }
 `;
 
+export const CheckBox = styled.div`
+  margin: 10px 0;
+
+  & > button {
+    border: 1px solid;
+    padding: 3px 5px;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  & > button:first-child {
+    margin-right: 12px;
+    border-color: #7879f1;
+    color: #7879f1;
+
+    &:hover {
+      box-shadow: 4px 4px 5px #e3daff;
+    }
+  }
+  & > button:last-child {
+    border-color: #ff0000;
+    color: #ff0000;
+
+    &:hover {
+      box-shadow: 4px 4px 5px #ffedda;
+    }
+  }
+`;
+
 interface SubItemBtnProps {
   isClicked: boolean;
 }

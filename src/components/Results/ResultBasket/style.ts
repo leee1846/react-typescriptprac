@@ -15,6 +15,8 @@ export const Title = styled.div`
     padding: 5px 8px;
     border: 1px solid black;
     font-size: 16px;
+    transition: 0.2s;
+
     &:hover {
       box-shadow: 4px 4px 5px lightgray;
     }
@@ -42,6 +44,7 @@ export const BasketItem = styled.li`
     border: 1px solid crimson;
     font-size: 14px;
     color: crimson;
+    transition: 0.2s;
 
     &:hover {
       box-shadow: 4px 4px 5px rgba(255, 202, 202, 1);

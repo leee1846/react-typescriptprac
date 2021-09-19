@@ -26,6 +26,7 @@ export const NameBtn = styled.button`
   font-family: 'Lato Bold';
   font-size: 24px;
   color: #0d9991;
+  transition: 0.2s;
 
   &:hover {
     box-shadow: 4px 4px 5px rgba(189, 235, 193, 1);
@@ -39,6 +40,7 @@ export const AddBtn = styled.button`
   border: 1px solid crimson;
   padding: 3px 5px;
   font-size: 14px;
+  transition: 0.2s;
 
   &:hover {
     box-shadow: 4px 4px 5px rgba(255, 202, 202, 1);

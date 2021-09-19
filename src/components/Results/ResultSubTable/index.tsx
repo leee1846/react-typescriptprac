@@ -32,6 +32,10 @@ const ResultSubTable = ({
     });
   };
 
+  const onCheckAll = () => {
+    setClickedSubItem(() => resultSubList.map((subItem) => subItem.id));
+  };
+
   useEffect(() => {
     setClickedSubItem([]);
   }, [clickedResultItem]);
@@ -48,7 +52,14 @@ const ResultSubTable = ({
         setClickedResultItem={setClickedResultItem}
         setBasket={setBasket}
       />
-
+      <S.CheckBox>
+        <button type="button" onClick={onCheckAll}>
+          check all
+        </button>
+        <button type="button" onClick={() => setClickedSubItem([])}>
+          remove all
+        </button>
+      </S.CheckBox>
       <ul>
         {resultSubList.map((item) => (
           <li key={item.id}>
