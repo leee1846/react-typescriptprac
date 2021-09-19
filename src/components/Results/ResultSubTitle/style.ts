@@ -8,7 +8,7 @@ export const TitleBox = styled.ul`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 18px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 `;
 
 export const Title = styled.li`
@@ -20,6 +20,7 @@ export const Title = styled.li`
 
   & > h2 {
     line-height: 1px;
+    font-size: 24px;
   }
 `;
 

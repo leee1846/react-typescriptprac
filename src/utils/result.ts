@@ -1,4 +1,4 @@
-import { ResultListType } from '../types/resultTypes';
+import { ResultItemType, ResultListType } from '../types/resultTypes';
 
 export const sortAscendingResult = (array: ResultListType, key: number) => {
   if (array) {
@@ -24,4 +24,8 @@ export const sortDescendingResult = (array: ResultListType, key: number) => {
   }
 
   return array;
+};
+
+export const setSubListToStorage = (name: string, list: ResultItemType) => {
+  sessionStorage.setItem(`${name}`, JSON.stringify(list));
 };
