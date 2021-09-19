@@ -7,6 +7,12 @@ import ResultSubTable from '../components/Results/ResultSubTable';
 import useGetResults from '../swr/useGetResults';
 
 const ResultPage = () => {
+  // 새로고침시 sessionStorage clear
+  window.addEventListener('beforeunload', (e) => {
+    e.preventDefault();
+    sessionStorage.clear();
+  });
+
   const [clickedResultItem, setClickedResultItem] = useState({
     name: '',
     foxtrot: 0,

@@ -6,16 +6,17 @@ import { setSubListToStorage } from '../utils/result';
 const useGetResultSubList = (name: string): { data: ResultSubType } => {
   // storage에 저장되어있지 않다면 fetch
   const sholudFetch = () => {
-    const savedSubList = sessionStorage.getItem(`${name}`);
-    if (!savedSubList) {
-      return true;
-    }
-    return false;
+    const prevList = JSON.parse(
+      sessionStorage.getItem(`clickedResult`) || '[]',
+    );
+    const newItem = prevList.filter((item: string) => item === name);
+    if (newItem[0]) return false;
+    return true;
   };
 
   const { data } = useSWR(`/result/${name}`, sholudFetch() ? fetcher : null);
   if (data && name) {
-    setSubListToStorage(name, data);
+    setSubListToStorage(name);
   }
 
   return { data };

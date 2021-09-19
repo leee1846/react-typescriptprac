@@ -26,6 +26,12 @@ export const sortDescendingResult = (array: ResultListType, key: number) => {
   return array;
 };
 
-export const setSubListToStorage = (name: string, list: ResultItemType) => {
-  sessionStorage.setItem(`${name}`, JSON.stringify(list));
+export const setSubListToStorage = (name: string) => {
+  const prevList = JSON.parse(sessionStorage.getItem('clickedResult') || `[]`);
+  if (!prevList.includes(name)) {
+    sessionStorage.setItem(
+      `clickedResult`,
+      JSON.stringify([...prevList, name]),
+    );
+  }
 };
