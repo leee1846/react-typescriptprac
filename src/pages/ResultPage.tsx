@@ -9,10 +9,10 @@ import { ResultListType } from '../types/resultTypes';
 import ResultBasket from '../components/Results/ResultBasket';
 
 const ResultPage = () => {
-  // 새로고침시 sessionStorage clear
+  // 새로고침 후 swr의 캐시 데이터가 삭제되어 sessionstorage 리셋
   window.addEventListener('beforeunload', (e) => {
     e.preventDefault();
-    sessionStorage.clear();
+    sessionStorage.removeItem('clickedResult');
   });
 
   const [clickedResultItem, setClickedResultItem] = useState({

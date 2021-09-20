@@ -1,10 +1,10 @@
 import React from 'react';
-import * as S from './style';
 import { ResultListType } from '../../../types/resultTypes';
 import {
   sortAscendingResult,
   sortDescendingResult,
 } from '../../../utils/result';
+import * as S from './style';
 
 interface Props {
   setFilteredList: React.Dispatch<React.SetStateAction<ResultListType>>;

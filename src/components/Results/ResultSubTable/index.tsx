@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ResultItem from '../ResultItem';
 import * as S from './style';
 import {
@@ -43,10 +43,6 @@ const ResultSubTable = ({
     e.stopPropagation();
     setClickedSubItem((prev) => prev.filter((prevItem) => prevItem !== id));
   };
-
-  useEffect(() => {
-    setClickedSubItem([]);
-  }, [clickedResultItem]);
 
   return (
     <S.Container>

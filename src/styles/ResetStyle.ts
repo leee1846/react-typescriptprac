@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import './font.css';
 
 const ResetStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,

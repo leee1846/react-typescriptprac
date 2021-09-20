@@ -1,46 +1,14 @@
-# Getting Started with Create React App
+<h1>HITS 프론트엔드 과제</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>구동방법</h2>
+ - terminal에서 npm install 또는 yarn을 타이핑하여 패키지를 설치합니다.
+ - npm start 또는 yarn start를 사용하여 파일을 실행합니다.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h2>사용 라이브러리</h2>
+ - <b>CRA(typescript)</b>를 사용하여 react로 구성하였습니다.
+ - <b>react-router-dom</b>을 사용하여 페이지를 구성하였습니다.
+ - <b>swr</b>과 <b>axios</b>를 사용하여 api통신 하였습니다.
+ - <b>styled-components</b>를 사용하여 style을 적용하였습니다.
+ - <b>airbnb eslint</b>를 적용하여 개발하였습니다.
+ 
+ ![](src/assets/images/intro.gif)

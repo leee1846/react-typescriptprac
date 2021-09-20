@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from './style';
 import { ResultItemObjType, ResultListType } from '../../../types/resultTypes';
-import { AddBtn } from './style';
 
 interface Props {
   resultItem: ResultItemObjType;

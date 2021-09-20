@@ -10,6 +10,7 @@ const ResultForm = ({ setSearchValue }: Props) => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setSearchValue(inputValue.toLowerCase());
     window.scrollTo({ left: 0, top: 233, behavior: 'smooth' });
   };
